@@ -27,10 +27,15 @@ const renderSpinner = parentEl => {
 
 const showRecipe = async () => {
   try {
+    const id = window.location.hash.slice(1) // Using this method we can get the hash url and manipulate it. // Spliting out the Hash for use in fetch method.
+    console.log(id)
+
+    if(!id) return;
+
     // 1) Loading Recipe
     renderSpinner(recipeContainer)
 
-    const res = await fetch('https://forkify-api.herokuapp.com/api/v2/recipes/5ed6604591c37cdc054bc886')
+    const res = await fetch(`https://forkify-api.herokuapp.com/api/v2/recipes/${id}`)
     const data = await res.json()
     
     console.log(res)
@@ -148,3 +153,7 @@ const showRecipe = async () => {
 }
 
 showRecipe()
+
+window.addEventListener('hashchange', showRecipe) // This eventListener we can catch the hash change in the browser.
+
+['hashchange', 'load'].forEach(ev => window.addEventListener(ev, showRecipe)) // Using for each to trigger functions.
