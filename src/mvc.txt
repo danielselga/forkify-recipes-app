@@ -1,0 +1,13 @@
+MVC -> Model View Controller
+
+Components of any architecture:
+
+Business logic -> Code that solves the actual business problem. Directly related to what business does and what it needs. 
+Exemple: Sending messages, storing trasactions, calculating taxes.
+
+State -> Essentially stores all the data about the application. Should be the single source of truth. UI should be kept in sync with the state. State libraries exist.
+
+HTTP Libraries -> Responsible for making and recive AJAX calls. Optional but almost always necessary in real-world apps.
+
+Application logic -> Code that only concernd about the implementation itself. Handle navigation and UI events.
+
