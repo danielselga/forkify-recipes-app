@@ -118,6 +118,10 @@ class RecipeView {
       this._parentElement.innerHTML = ''
       this._parentElement.insertAdjacentHTML('afterbegin', markup)
       }
+
+      addHandlerRender(handler) {
+        ['hashchange', 'load'].forEach(ev => window.addEventListener(ev, handler)) // Using for each to trigger functions.
+      }
 }
 
 export default new RecipeView()
